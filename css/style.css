@@ -1,0 +1,76 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+header{
+    background-color: lightblue;
+}
+
+.header-login{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-login h1{
+    margin-left: 2%;
+}
+
+.header-ul{
+    display: flex;
+    flex-direction: row-reverse;
+    list-style: none;
+    gap: 20px;
+    margin-right: 20px;
+    padding-top: 5px;
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.carousel-inner img{
+   height: 60vh;
+}
+
+#artistasdestacados{
+    margin: 50px 20px;
+    height: 100vh;
+    max-width: 95%;
+}
+
+#artistasdestacados h2{
+    height: 10%;
+    font-size: 8vh;
+    text-align: center;
+}
+.contenedor{
+    height: 100%;
+}
+.img-destacados{
+    height: 90%;
+}
+.altdest{
+    height: 50%;
+    margin: 10px 0px;
+}
+
+.altdest img{
+    height: 100%;
+}
+.col1{
+    display: flex;
+    column-gap: 1.5%;
+}
+.col1 img{
+    width: 51.5%;
+}
+.col2{
+    display: flex;
+    column-gap: 1.5%;
+}
+.col2 img{
+    width: calc(97% / 3);
+}
