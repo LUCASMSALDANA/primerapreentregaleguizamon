@@ -74,3 +74,29 @@ h1{
 .col2 img{
     width: calc(97% / 3);
 }
+
+#subastas{
+    text-align: center;
+}
+#subastas-div{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.subasta-card{
+    display: flex;
+    height: 260px;
+    width: 46%;
+    border: 2px black solid;
+    border-radius: 15px;
+}
+
+.subasta-img-container{
+    width: 50%;
+}
+
+.contenido{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
