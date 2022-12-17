@@ -1,26 +1,3 @@
-/*let moneda="";
-let monto="";
-while(moneda != "salir"){
-    moneda= prompt ("¿dolar, pesos o salir?");
-    if (moneda != "salir"){
-    monto= prompt ("ingrese su monto: ");
-    calcular_precios(monto);
-    }
-}*/
-
-/*function calcular_precios (monto){
-    if(monto>0 && moneda =="pesos"){
-        precio1= monto / 315;
-        console.log("su monto es:",monto);
-        console.log("el precio de la pintura es de:",precio1);   
-        }
-        else if (monto>0 && moneda=="dolar"){
-        precio2= monto *315;
-        console.log("su monto es:",monto);
-        console.log("el precio de la pintura es de:",precio2);  
-     }
-}*/
-
 class compradores {
     constructor(nombre,apellido,subastado,edad){
         this.nombre=nombre;
@@ -57,3 +34,24 @@ lista_compradores.forEach (compradores =>{
 let resultado_filter = lista_compradores.filter (mayor_edad);
 
 console.log(resultado_filter);
+
+const subastaDiv = document.getElementById("subastas-div");
+const precioSubasta = document.getElementById("precio-subasta");
+const inputSubasta = document.getElementById("caja-input-subasta")
+const botonSubastar = document.getElementById("btn-subastar")
+
+console.log(precioSubasta.innerHTML);
+console.log("");
+console.log(inputSubasta.value);
+
+botonSubastar.onclick = subastar;
+
+function subastar(){
+    if(inputSubasta.value>precioSubasta.innerHTML){        
+        precioSubasta.innerHTML=inputSubasta.value;
+    }else{
+        alert("El precio ofertado debe ser mayor al precio actual");
+    }
+}
+
+

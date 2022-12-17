@@ -82,6 +82,7 @@
             <div class="img-destacados">
                 <div class="col1 altdest">
                     <img src="img/arte3.jpg" alt="">
+
                     <img src="img/arte2.jpg" alt="">
                 </div>
                 <div class="col2 altdest ">
@@ -92,10 +93,28 @@
             </div>
         </div>
     </section>
-    <script src="arte2.js">
-        
-    </script>
+    <section id="subastas">
+      <div class="titulo-subasta"> 
+        <h2>Subastas</h2>
+      </div>  
+      <div class="subasta-div" id="subastas-div">
+        <div class="subasta-card">
+          <div class="subasta-img-container"></div>
+          <div class="contenido">
+            <h2 class="titulo-subasta">Pintura</h2>
+            <div style="display: flex; flex-direction: row;">
+              <h2 style="color: green;">$</h2>
+              <p class="precio-subasta" id="precio-subasta">15000</p>
+            </div>
+            <input type="number" class="caja-input-subasta" id="caja-input-subasta">
+            <button class="btn-subastar" id="btn-subastar">Subastar</button>
+          </div>
+      </div>
 
+      </div>
+    </section>
+    <!-- <script src="arte2.js">      </script> -->
+    <script src="subastas.js"></script>
       
 </body>
 </html>
