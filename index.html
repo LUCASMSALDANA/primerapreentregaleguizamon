@@ -99,19 +99,87 @@
       </div>  
       <div class="subasta-div" id="subastas-div">
         <div class="subasta-card">
-          <div class="subasta-img-container"></div>
+          <div class="subasta-img-container">
+            <img src="img/marilyn.jpg" alt="">
+          </div>
           <div class="contenido">
             <h2 class="titulo-subasta">Pintura</h2>
-            <div style="display: flex; flex-direction: row;">
+            <div class="conteiner-nombre" style="display: flex; flex-direction: row;" >
+              <p>Nombre: </p>
+              <input type="text" class="input-conteiner" id="nombre_usuario" >
+            </div>
+            <div class="conteiner-mail" style="display: flex; flex-direction: row;" >
+              <p>Mail: </p>
+              <input type="text" class="input-conteiner" id="mail_usuario">
+            </div>
+            <div class="conteiner-telefono" style="display: flex; flex-direction: row;" >
+              <p>Telefono: </p>
+              <input type="text" class="input-conteiner" id="telefono_usuario" >
+            </div>
+            <div class="conteiner-precios" style="display: flex; flex-direction: row;">
+              <p class="conteiner-precio-inicial">PRECIO INICIAL:</p>
               <h2 style="color: green;">$</h2>
-              <p class="precio-subasta" id="precio-subasta">15000</p>
+              <p class="precio-subasta" id="precio-subasta">15.000</p>
             </div>
             <input type="number" class="caja-input-subasta" id="caja-input-subasta">
-            <button class="btn-subastar" id="btn-subastar">Subastar</button>
+            <button class="btn-subastar" id="btn-subastar">SUBASTAR</button>
           </div>
       </div>
+    </section>
+    <section>
+      <div>
+         <div>
+           <h2 class="titulo-carta">
+             VARIEDAD DE ARTE
+           </h2>
+         </div>
+          <div class="carta-columna">
+            <div class="card" style="width: 90%;">
+                <div carta-pintura>
+                <img style="height: 265px;" src="img/avatar.jpg" class="card-img-top" alt="...">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Pintura</h5>
+                  <p class="card-text">Impresionante retrato de avatar hecho a lapiz en blanco y negro </p>
+                  <span class="precio">40.000$</span>  
+                  <a href="#carrito" class="btn btn-primary botonCompra">Comprar</a>
+                </div>
+              </div>
+              <div class="card" style="width: 90%;">
+                <div carta-pintura>
+                <img style="height: 265px;" src="img/surrealismo.jpg" class="card-img-top" alt="...">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Pintura</h5>
+                  <p class="card-text">Impresionante retrato de avatar hecho a lapiz en blanco y negro </p>
+                  <span class="precio">300.000$</span>  
+                  <a href="#carrito" class="btn btn-primary botonCompra">Comprar</a>
+                </div>
+              </div>
+              
+        </div>
+      </div>
+       </div>
+      </div>
+
+      <div class="container" id="carrito">
+        <h2>Carrito</h2>
+        <table class="table table-dark">
+          <thead>
+            <tr>             
+              <td>Producto</td>
+              <td>Cantidad</td>
+              <td>Precio</td>
+              <td></td>
+            </tr>
+          </thead>
+          <tbody id="tbody">
+          
+          </tbody>
+        </table>
 
       </div>
+    </div>
     </section>
     <!-- <script src="arte2.js">      </script> -->
     <script src="subastas.js"></script>

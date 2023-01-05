@@ -15,7 +15,7 @@ for(let i=0;i<2;i=i+1) {
     let nuevo_arte= new arte(nombre, tipo, tamaño);
     lista_arte.push(nuevo_arte); 
 }
-console.log(lista_arte);
+console.log(lista_arte.length);
 
 for(let arte of lista_arte){
     console.log(arte);
