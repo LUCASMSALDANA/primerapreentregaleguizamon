@@ -40,9 +40,6 @@ const precioSubasta = document.getElementById("precio-subasta");
 const inputSubasta = document.getElementById("caja-input-subasta")
 const botonSubastar = document.getElementById("btn-subastar")
 
-console.log(precioSubasta.innerHTML);
-console.log("");
-console.log(inputSubasta.value);
 
 botonSubastar.onclick = subastar;
 
@@ -55,6 +52,8 @@ function subastar(){
 }
 
 let lista_usuarios=[];
+
+
 
 function set_info(){
     let nombre=document.getElementById("nombre_usuario");
@@ -75,45 +74,86 @@ function set_info(){
 }
 
 let boton=document.getElementById("btn-subastar");
+const listaCarrito=mostrarCarrito();
+
 
 boton.addEventListener("click",set_info);
 
-let boton_compra= document.querySelectorAll(".botonCompra");
+const boton_compra= document.querySelectorAll(".botonCompra");
+
+
+for(let i=0; i<boton_compra.length;i++){
+    boton_compra[i].addEventListener("click",agregar_carrito)
+}
+
 
 function agregar_carrito(e){
-    console.log("producto agregado");
+    let itemRepetido= false; /**Esta variable se usa cuando quiero comprar un item q ya esta en mi lista */
+
     let producto_2= e.target;
     let producto_1= producto_2.parentNode;
     let producto=producto_1.parentNode;
-    console.log(producto);
-    let nombre_productos = producto_1.querySelector("h5").textcontent;
-    let precio_productos = producto_1.querySelector("span").textcontent;
-    let img_productos = producto.querySelector("img").src;
 
-    console.log(nombre_productos);
-    console.log(precio_productos);
-    console.log(img_productos);
-    let servicio={
+    let nombre_productos = producto_1.querySelector("h5").innerHTML;
+    let precio_productos = producto_1.querySelector("span").innerHTML;
+    let img_productos = producto.querySelector("img").src;
+    const carritoEnPantalla = document.getElementById("tbody");
+
+    let itemCarrito={  /** Es el mismo objeto pero le cambie el nombre para q sea mas facil */
         nombre: nombre_productos,
         precio: precio_productos,
         img: img_productos,
         cantidad:1
     };
-    let servicio_json=JSON.stringify(servicio);
-    localStorage.setItem("lista",servicio_json);
-    carrito.push(servicio);
-    function carrito(servicio){
 
+    listaCarrito.forEach(producto => {  /** Recorro mi listaCarrito (Es la que esta en local storage) */
+        if(itemCarrito.img==producto.img){ /**Pregunto si la imagen del item que va a comprar la persona es igual al producto que tengo guardado en el localstorage (es decir si ya existe en mi carrito) */
+            producto.cantidad++ /** en caso de que exista, a ese producto dentro de mi localstorage le sumo 1  */
+            itemRepetido=true; /**Como el item que quiere comprar esta repetido cambio el valor de la variable */
+        }
+    });
+
+    if(!itemRepetido){ /**Si el item no esta repetido, entonces voy a agregarlo a mi lista que voy a guardar en mi local storage */
+        listaCarrito.push(itemCarrito);    
+    }
+
+    let listaCarrito_json=JSON.stringify(listaCarrito);
+    localStorage.setItem("listaCarrito",listaCarrito_json); /**Guardo mi lista, ya sea porque le agregue un item al carrito, o porque aumente el valor de algun producto que ya estaba dentro del carrito */
+    carritoEnPantalla.innerHTML="";
+    mostrarCarrito(); /* LLamo a la funcion que muestra el carrito */
+}
+
+function mostrarCarrito(){  /*Le cambie el nombre a la funcion (antes era solo carrito), de esta manera se entiende mejor que hace esta funcion */
+    let listaCarrito = JSON.parse(localStorage.getItem("listaCarrito")) || []; /*Me traigo del localStorage mi carrito, sino encuentra nada la defino en nulo por eso el operacional logico || */
+
+    listaCarrito.forEach(producto =>{ /*para cada elemento de la lista voy a hacer lo siguiente */
         let fila = document.createElement("tr");
-        fila.innerHTML = `<td><img src="${servicio.img}"></td>
-                          <td>${servicio.nombre}</td>
-                          <td>${servicio.cantidad}</td>
-                          <td>${servicio.precio}</td>
+        fila.innerHTML = `<td><img class="carrito-img" src="${producto.img}"></td> 
+                          <td>${producto.nombre}</td>
+                          <td>${producto.cantidad}</td>
+                          <td>${producto.precio}</td>
+                          <td><button class="botones-carrito boton-suma">+</button></td>
+                          <td><button class="botones-carrito boton">-</button></td>
                           <td><button class="btn btn-danger borrar_elemento">Borrar</button></td>
-                          `;    
-    
+                          `;    /**En la linea 129 agregue un estilo para q la imagen se vea chico */
+
         let tabla = document.getElementById("tbody");
         tabla.append( fila );
+    })
+
+    const boton_borrar= document.querySelectorAll(".borrar_elemento"); /*me traigo los botones de borrar que acabo de crear */
+    for(let i=0; i<boton_borrar.length;i++){ /* Les agrego la funcion */
+        boton_borrar[i].addEventListener("click",borrarElemento)
+    }
+    return listaCarrito ;    
 }
 
+function borrarElemento(e){
+    let botonPresionado = e.target;
+    let columnaBotonPresionado = botonPresionado.parentNode;
+    let fila = columnaBotonPresionado.parentNode;
+    fila.innerHTML="";
 }
+
+
+

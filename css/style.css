@@ -161,7 +161,6 @@ h1{
     font-size: 50px;
 }
 .carta-columna{
-    width: 65%;
     display: flex;
 }
 
@@ -174,12 +173,13 @@ h1{
     align-items: center;
 }
 #carrito{
-    width: 25%; 
-    background-color: red; 
+    width: 40%; 
+    background-color: lightcoral; 
     height: 60vh;
     top: 50%;
-    left: 75%;
+    left: 70%;
     position: sticky;
+
  }
  #carrito h2{
     display: flex;
@@ -188,4 +188,17 @@ h1{
  }
  td{
     height: 40px;
+  }
+.botones-carrito{
+    width: 30px;
+    border-radius: 30px;
+    font-size: 30px;
+}
+.botones-carrito:hover{
+    background-color: blue;
+}
+  /** Agrege la clasee carrito-img, fijate en la linea 129 del archivo subastas.js que le agregue la clase al elemento que estabas creando**/
+  .carrito-img{ 
+    height: 60px;
+    width: 60px;
   }
