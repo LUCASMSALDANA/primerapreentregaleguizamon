@@ -150,7 +150,6 @@ function sumarRestarItems(e){
         if(imgParaBorrar==producto.img){ /**Pregunto si la imagen del item que va a comprar la persona es igual al producto que tengo guardado en el localstorage (es decir si ya existe en mi carrito) */
             producto.cantidad++;
         }
-        pos++;
     });
     }else{
         listaCarrito.forEach(producto => {  /** Recorro mi listaCarrito (Es la que esta en local storage) */
