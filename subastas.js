@@ -129,10 +129,13 @@ function mostrarCarrito(){  /*Le cambie el nombre a la funcion (antes era solo c
                           <td>${producto.cantidad}</td>
                           <td>${producto.precio}</td>
                           <td><button class="botones-carrito boton-suma">+</button></td>
-                          <td><button class="botones-carrito boton">-</button></td>
+                          <td><button class="botones-carrito boton-resta">-</button></td>
                           <td><button class="btn btn-danger borrar_elemento">Borrar</button></td>
                           `;    /**En la linea 129 agregue un estilo para q la imagen se vea chico */
-
+        let botonSuma= fila.querySelector(".boton-suma");
+        let botonResta = fila.querySelector(".boton-resta")
+        botonSuma.addEventListener("click", sumarRestarItems);
+        botonResta.addEventListener("click", sumarRestarItems);
         let tabla = document.getElementById("tbody");
         tabla.append( fila );
     })
@@ -174,4 +177,33 @@ function guardarCarrito(listaCarrito){
     let listaCarrito_json=JSON.stringify(listaCarrito);
     localStorage.setItem("listaCarrito",listaCarrito_json); /**Guardo mi lista, ya sea porque le agregue un item al carrito, o porque aumente el valor de algun producto que ya estaba dentro del carrito */
 
+}
+
+function sumarRestarItems(e){
+    let imgParaBorrar = e.target.parentNode.parentNode.querySelector("img").src;
+    let listaCarrito = recuperarCarrito();
+    let pos=0;
+    if(e.target.classList.contains("boton-suma")){
+        listaCarrito.forEach(producto => {  /** Recorro mi listaCarrito (Es la que esta en local storage) */
+        if(imgParaBorrar==producto.img){ /**Pregunto si la imagen del item que va a comprar la persona es igual al producto que tengo guardado en el localstorage (es decir si ya existe en mi carrito) */
+            producto.cantidad++;
+        }
+        pos++;
+    });
+    }else{
+        listaCarrito.forEach(producto => {  /** Recorro mi listaCarrito (Es la que esta en local storage) */
+        if(imgParaBorrar==producto.img){ /**Pregunto si la imagen del item que va a comprar la persona es igual al producto que tengo guardado en el localstorage (es decir si ya existe en mi carrito) */
+           if(producto.cantidad>1){
+               producto.cantidad--;
+           }else{
+            listaCarrito.splice (pos,1);
+           }
+        }
+        pos++;
+    });
+    }
+    const carritoEnPantalla = document.getElementById("tbody");
+    guardarCarrito(listaCarrito);
+    carritoEnPantalla.innerHTML="";
+    mostrarCarrito();
 }
