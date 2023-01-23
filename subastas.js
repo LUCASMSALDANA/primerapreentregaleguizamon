@@ -1,40 +1,3 @@
-/*class compradores {
-    constructor(nombre,apellido,subastado,edad){
-        this.nombre=nombre;
-        this.apellido=apellido;
-        this.subastado=subastado;
-        this.edad=edad;
-    }
-}
-
-let lista_compradores = [];
-
-for(let i=0;i<2;i=i+1){
-    let nombre= prompt("ingrese su nombre");
-    let apellido=prompt("ingrese apellido");
-    let subastado=prompt("¿desea comprar una pintura, una escultura o una fotografia?")
-    let edad=prompt("ponga su edad:")
-
-    let nuevo_comprador = new compradores(nombre,apellido,subastado,edad);
-    lista_compradores.push (nuevo_comprador);
-}
-
-console.log(lista_compradores);
-
-function mayor_edad (compradores){
-   
-    return compradores.edad >=18;
-}
-lista_compradores.forEach (compradores =>{
-    if (mayor_edad(compradores)){
-        console.log("mayor de edad")
-    }
-})
-
-let resultado_filter = lista_compradores.filter (mayor_edad);
-
-console.log(resultado_filter);*/
-
 const subastaDiv = document.getElementById("subastas-div");
 const precioSubasta = document.getElementById("precio-subasta");
 const inputSubasta = document.getElementById("caja-input-subasta")
@@ -136,14 +99,13 @@ function mostrarCarrito(){  /*Le cambie el nombre a la funcion (antes era solo c
         let botonResta = fila.querySelector(".boton-resta")
         botonSuma.addEventListener("click", sumarRestarItems);
         botonResta.addEventListener("click", sumarRestarItems);
+        const boton_borrar= fila.querySelector(".borrar_elemento");
+        console.log(boton_borrar)
+        boton_borrar.addEventListener("click",borrarElemento)
         let tabla = document.getElementById("tbody");
         tabla.append( fila );
     })
 
-    const boton_borrar= document.querySelectorAll(".borrar_elemento"); /*me traigo los botones de borrar que acabo de crear */
-    for(let i=0; i<boton_borrar.length;i++){ /* Les agrego la funcion */
-        boton_borrar[i].addEventListener("click",borrarElemento)
-    }
     return listaCarrito ;    
 }
 
