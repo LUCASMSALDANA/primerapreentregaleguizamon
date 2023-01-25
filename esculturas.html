@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="header-login">
+            <h1> <a href="index.html" style="text-decoration: none;">ARTE PARA TODOS</a> </h1>
+            <ul class="header-ul">
+                <li>Sobre Nosotros</li>
+                <li>Hazte Una Cuenta</li>
+            </ul>
+        </div>
+      <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid">
+      <a class="navbar-brand" href="#">Arte para todos </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="pinturas.html">Pinturas</a>
+              </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="esculturas.html">Esculturas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Fotografias</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+    </nav>
+    <div class="titulos">
+        <h2>ESCULTURAS</h2>
+    </div>
+      <div class="carta-columna">
+        <div class="card" style="width: 90%;">
+            <div carta-pintura>
+            <img style="height: 265px;" src="img/ironman.jpg" class="card-img-top" alt="...">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Escultura</h5>
+              <p class="card-text">Impresionante escultura de ironman </p>
+              <span class="precio">4.000.000$</span>  
+              <a href="#carrito" class="btn btn-primary botonCompra">Comprar</a>
+            </div>
+          </div>
+          <div class="card" style="width: 90%;">
+            <div carta-pintura>
+            <img style="height: 265px;" src="img/mujer.jpg" class="card-img-top" alt="...">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Escultura</h5>
+              <p class="card-text">Impresionante escultura </p>
+              <span class="precio">3.000.000$</span>  
+              <a href="#carrito" class="btn btn-primary botonCompra">Comprar</a>
+            </div>
+          </div>
+          <div class="card" style="width: 90%;">
+            <div carta-pintura>
+            <img style="height: 265px;" src="img/tapado.jpg" class="card-img-top" alt="...">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Escultura</h5>
+              <p class="card-text">Impresionante escultura  </p>
+              <span class="precio">100.000.000$</span>  
+              <a href="#carrito" class="btn btn-primary botonCompra">Comprar</a>
+            </div>
+          </div>
+    </div>
+    <div class="carta-columna">
+      <div class="card" style="width: 90%;">
+          <div carta-pintura>
+          <img style="height: 265px;" src="img/esculturas1.jpg" class="card-img-top" alt="...">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Escultura</h5>
+            <p class="card-text">Impresionante escultura </p>
+            <span class="precio">5.000.000$</span>  
+            <a href="#carrito" class="btn btn-primary botonCompra">Comprar</a>
+          </div>
+        </div>
+        <div class="card" style="width: 90%;">
+          <div carta-pintura>
+          <img style="height: 265px;" src="img/religiosa.jpg" class="card-img-top" alt="...">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Escultura</h5>
+            <p class="card-text">Impresionante escultura religiosa </p>
+            <span class="precio">20.000.000$</span>  
+            <a href="#carrito" class="btn btn-primary botonCompra">Comprar</a>
+          </div>
+        </div>
+        <div class="card" style="width: 90%;">
+          <div carta-pintura>
+          <img style="height: 265px;" src="img/tortuga.jpg" class="card-img-top" alt="...">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Escultura</h5>
+            <p class="card-text">Impresionante escultura de tortuga</p>
+            <span class="precio">1.000.000$</span>  
+            <a href="#carrito" class="btn btn-primary botonCompra">Comprar</a>
+          </div>
+        </div>
+  </div>
+    <div>
+    </div>
+  </div>
+   </div>
+  </div>
+
+  <div class="container" id="carrito">
+    <h2>Carrito</h2>
+    <table class="table table-dark">
+      <thead>
+        <tr>          
+          <td></td>   
+          <td>Producto</td>
+          <td>Cantidad</td>
+          <td>Precio</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </thead>
+      <tbody id="tbody">
+      
+      </tbody>
+    </table>
+
+  </div>
+</div>
+</section>
+<script src="subastas.js"></script>
+</body>
+</html>
