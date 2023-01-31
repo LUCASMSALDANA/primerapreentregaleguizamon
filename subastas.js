@@ -1,4 +1,4 @@
-import { agregar_carrito, mostrarCarrito} from "./carrito.js";
+import { agregar_carrito, mostrarCarrito, finalizarCompra} from "./carrito.js";
 
 const subastaDiv = document.getElementById("subastas-div");
 const precioSubasta = document.getElementById("precio-subasta");
@@ -44,5 +44,6 @@ for(let i=0; i<boton_compra.length;i++){
     boton_compra[i].addEventListener("click",agregar_carrito)
 }
 
-         
+ const botonFinalizarcompra= document.getElementById("compraFinal")     
+botonFinalizarcompra.addEventListener("click",finalizarCompra) 
 

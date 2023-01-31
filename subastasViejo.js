@@ -1,4 +1,49 @@
-export function agregar_carrito(e){
+const subastaDiv = document.getElementById("subastas-div");
+const precioSubasta = document.getElementById("precio-subasta");
+const inputSubasta = document.getElementById("caja-input-subasta")
+const botonSubastar = document.getElementById("btn-subastar")
+
+let lista_usuarios=[];
+botonSubastar.onclick = subastar;
+mostrarCarrito();
+
+function subastar(){
+    if(parseInt(inputSubasta.value)>parseInt(precioSubasta.innerHTML)){ 
+        precioSubasta.innerHTML=inputSubasta.value;
+    }else{
+        alert("El precio ofertado debe ser mayor al precio actual");
+    }
+}
+
+
+function set_info(){
+    let nombre=document.getElementById("nombre_usuario");
+    let mail= document.getElementById("mail_usuario");
+    let telefono=document.getElementById("telefono_usuario");
+    let usuario={nombre_del_usuario:nombre.value,
+    mail_del_usuario:mail.value,
+    telefono_del_usuario:telefono.value};
+    lista_usuarios.push(usuario);
+    let lista_json= JSON.stringify(lista_usuarios);
+    localStorage.setItem("lista",lista_json);
+    let recuperando= localStorage.getItem("lista");
+    recuperando=JSON.parse(recuperando);
+
+}
+
+let boton=document.getElementById("btn-subastar");
+
+boton.addEventListener("click",set_info);
+
+const boton_compra= document.querySelectorAll(".botonCompra");
+
+
+for(let i=0; i<boton_compra.length;i++){
+    boton_compra[i].addEventListener("click",agregar_carrito)
+}
+
+         
+function agregar_carrito(e){
     let listaCarrito=recuperarCarrito();
     let itemRepetido= false; /**Esta variable se usa cuando quiero comprar un item q ya esta en mi lista */
 
@@ -39,7 +84,7 @@ function recuperarCarrito(){
     return listaCarrito;
 }
 
-export function mostrarCarrito(){  /*Le cambie el nombre a la funcion (antes era solo carrito), de esta manera se entiende mejor que hace esta funcion */
+function mostrarCarrito(){  /*Le cambie el nombre a la funcion (antes era solo carrito), de esta manera se entiende mejor que hace esta funcion */
     let listaCarrito = recuperarCarrito();
     listaCarrito.forEach(producto =>{ /*para cada elemento de la lista voy a hacer lo siguiente */
         let fila = document.createElement("tr");
@@ -119,12 +164,4 @@ function sumarRestarItems(e){
     mostrarCarrito();
 }
 
-export  function finalizarCompra(evento){
-    Toastify({
 
-        text: "Compra Exitosa",
-        
-        duration: 1500
-        
-        }).showToast();
-}
