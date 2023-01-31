@@ -231,3 +231,10 @@ h1{
     justify-content: center;
     margin-bottom: 10px;
 }
+
+#areaMarket{
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  justify-content: center;
+  justify-items: center;
+}
