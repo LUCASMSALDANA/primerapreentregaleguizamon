@@ -29,8 +29,3 @@ export function set_info(){
 }
 
 
-// let url= 'https://dummyjson.com/products/';
-// fetch(url)
-//             .then(res=>res.json())
-//             .then(json=>console.log(json))
-//             .catch(error=> console.log(error));
