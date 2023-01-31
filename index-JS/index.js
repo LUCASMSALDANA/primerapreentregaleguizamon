@@ -1,29 +1,30 @@
+/* IMPORTACIONES */
 import { agregar_carrito, actualizarCarrito, finalizarCompra} from "../carrito.js";
 import { subastar, set_info } from "./subastas.js";
 
+/*Llamamos y guardamos los botones en variables*/
 const botonSubastar = document.getElementById("btn-subastar")
 const boton=document.getElementById("btn-subastar");
 const botonFinalizarcompra= document.getElementById("compraFinal"); 
 
+/*Les asignamos a los botones una funcion*/
 botonSubastar.onclick = subastar;
 boton.addEventListener("click",set_info);
 botonFinalizarcompra.addEventListener("click",finalizarCompra); 
 
-const boton_compra= document.querySelectorAll(".botonCompra");
 
 actualizarCarrito();
 
-let url="https://dummyjson.com/products?limit=6";
+let url="https://dummyjson.com/products?limit=6"; /*Guardamos la url de donde vamos a consumir el recurso*/
 
-fetch(url)
-.then(res => res.json())
+fetch(url) /* Consumimos una API con productos*/
+.then(res => res.json()) 
 .then(producto=>mostrarProducto(producto.products))
 .catch(error=>console.log(error));
 
 
 function mostrarProducto(producto){
-    console.log(producto);
-
+    console.log(producto)
     const areaMarket = document.getElementById("areaMarket")
     for(let i = 0; i<producto.length;i++){
         const card= document.createElement("div")
@@ -40,7 +41,6 @@ function mostrarProducto(producto){
           <a href="#carrito" class="btn btn-primary botonCompra">Comprar</a>
         </div>
          `; 
-
         areaMarket.append(card);
     }
 }
