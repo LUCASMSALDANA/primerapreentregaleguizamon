@@ -29,7 +29,7 @@ export function agregar_carrito(e){
     }
 
     guardarCarrito(listaCarrito);
-    mostrarCarrito(); /* LLamo a la funcion que muestra el carrito */
+    actualizarCarrito(); /* LLamo a la funcion que muestra el carrito */
 }
 
 function recuperarCarrito(){
@@ -37,7 +37,7 @@ function recuperarCarrito(){
     return listaCarrito;
 }
 
-export function mostrarCarrito(){  /*Le cambie el nombre a la funcion (antes era solo carrito), de esta manera se entiende mejor que hace esta funcion */
+export function actualizarCarrito(){  /*Le cambie el nombre a la funcion (antes era solo carrito), de esta manera se entiende mejor que hace esta funcion */
     const carritoEnPantalla = document.getElementById("tbody");
     carritoEnPantalla.innerHTML="";
     let listaCarrito = recuperarCarrito();
@@ -116,13 +116,13 @@ function sumarRestarItems(e){
     
     guardarCarrito(listaCarrito);
     
-    mostrarCarrito();
+    actualizarCarrito();
 }
 
 export function finalizarCompra(evento){
     notificacionExitosa();
     localStorage.removeItem("listaCarrito");
-    mostrarCarrito();
+    actualizarCarrito();
 }
 
 function notificacionExitosa(){
