@@ -9,7 +9,6 @@ export function agregar_carrito(e){
     let nombre_productos = producto_1.querySelector("h5").innerHTML;
     let precio_productos = producto_1.querySelector("span").innerHTML;
     let img_productos = producto.querySelector("img").src;
-    const carritoEnPantalla = document.getElementById("tbody");
 
     let itemCarrito={  /** Es el mismo objeto pero le cambie el nombre para q sea mas facil */
         nombre: nombre_productos,
@@ -30,7 +29,6 @@ export function agregar_carrito(e){
     }
 
     guardarCarrito(listaCarrito);
-    carritoEnPantalla.innerHTML="";
     mostrarCarrito(); /* LLamo a la funcion que muestra el carrito */
 }
 
@@ -40,6 +38,8 @@ function recuperarCarrito(){
 }
 
 export function mostrarCarrito(){  /*Le cambie el nombre a la funcion (antes era solo carrito), de esta manera se entiende mejor que hace esta funcion */
+    const carritoEnPantalla = document.getElementById("tbody");
+    carritoEnPantalla.innerHTML="";
     let listaCarrito = recuperarCarrito();
     listaCarrito.forEach(producto =>{ /*para cada elemento de la lista voy a hacer lo siguiente */
         let fila = document.createElement("tr");
@@ -61,7 +61,7 @@ export function mostrarCarrito(){  /*Le cambie el nombre a la funcion (antes era
         tabla.append( fila );
     })
     
-    return listaCarrito ;    
+    return ;    
 }
 
 function borrarElemento(e){
@@ -113,13 +113,19 @@ function sumarRestarItems(e){
         pos++;
     });
     }
-    const carritoEnPantalla = document.getElementById("tbody");
+    
     guardarCarrito(listaCarrito);
-    carritoEnPantalla.innerHTML="";
+    
     mostrarCarrito();
 }
 
-export  function finalizarCompra(evento){
+export function finalizarCompra(evento){
+    notificacionExitosa();
+    localStorage.removeItem("listaCarrito");
+    mostrarCarrito();
+}
+
+function notificacionExitosa(){
     Toastify({
 
         text: "Compra Exitosa",

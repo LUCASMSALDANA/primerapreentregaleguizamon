@@ -225,9 +225,9 @@ h1{
     width: 60px;
   }
 
-  .btnvendido{
-   background-color: red;
-  }
-  .btnvendido{
-    background-color: none;
-  }
+  #compraFinal{
+    font-size: 30px;
+    border-radius: 7px;
+    justify-content: center;
+    margin-bottom: 10px;
+}
