@@ -5,8 +5,9 @@ const precioSubasta = document.getElementById("precio-subasta");
 const inputSubasta = document.getElementById("caja-input-subasta")
 const botonSubastar = document.getElementById("btn-subastar")
 
-
+let lista_usuarios=[];
 botonSubastar.onclick = subastar;
+mostrarCarrito();
 
 function subastar(){
     if(parseInt(inputSubasta.value)>parseInt(precioSubasta.innerHTML)){ 
@@ -15,9 +16,6 @@ function subastar(){
         alert("El precio ofertado debe ser mayor al precio actual");
     }
 }
-
-let lista_usuarios=[];
-
 
 
 function set_info(){
@@ -36,8 +34,6 @@ function set_info(){
 }
 
 let boton=document.getElementById("btn-subastar");
-mostrarCarrito();
-
 
 boton.addEventListener("click",set_info);
 
@@ -48,4 +44,5 @@ for(let i=0; i<boton_compra.length;i++){
     boton_compra[i].addEventListener("click",agregar_carrito)
 }
 
+         
 

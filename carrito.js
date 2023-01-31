@@ -56,7 +56,6 @@ export function mostrarCarrito(){  /*Le cambie el nombre a la funcion (antes era
         botonSuma.addEventListener("click", sumarRestarItems);
         botonResta.addEventListener("click", sumarRestarItems);
         const boton_borrar= fila.querySelector(".borrar_elemento");
-        console.log(boton_borrar)
         boton_borrar.addEventListener("click",borrarElemento)
         let tabla = document.getElementById("tbody");
         tabla.append( fila );
@@ -72,7 +71,7 @@ function borrarElemento(e){
     let pos=0;
     listaCarrito.forEach(producto => {  /** Recorro mi listaCarrito (Es la que esta en local storage) */
         if(imgParaBorrar==producto.img){ /**Pregunto si la imagen del item que va a comprar la persona es igual al producto que tengo guardado en el localstorage (es decir si ya existe en mi carrito) */
-            listaCarrito.splice (pos,1);
+            listaCarrito.splice(pos,1);
         }
         pos++;
     });
@@ -93,7 +92,6 @@ function guardarCarrito(listaCarrito){
 function sumarRestarItems(e){
     let imgParaBorrar = e.target.parentNode.parentNode.querySelector("img").src;
     let listaCarrito = recuperarCarrito();
-    let pos=0;
     if(e.target.classList.contains("boton-suma")){
         listaCarrito.forEach(producto => {  /** Recorro mi listaCarrito (Es la que esta en local storage) */
         if(imgParaBorrar==producto.img){ /**Pregunto si la imagen del item que va a comprar la persona es igual al producto que tengo guardado en el localstorage (es decir si ya existe en mi carrito) */
@@ -101,12 +99,15 @@ function sumarRestarItems(e){
         }
     });
     }else{
+        console.log(listaCarrito)
+        let pos=0;
         listaCarrito.forEach(producto => {  /** Recorro mi listaCarrito (Es la que esta en local storage) */
         if(imgParaBorrar==producto.img){ /**Pregunto si la imagen del item que va a comprar la persona es igual al producto que tengo guardado en el localstorage (es decir si ya existe en mi carrito) */
            if(producto.cantidad>1){
                producto.cantidad--;
-           }else{
-            listaCarrito.splice (pos,1);
+           }
+           else{
+            listaCarrito.splice(pos,1);
            }
         }
         pos++;

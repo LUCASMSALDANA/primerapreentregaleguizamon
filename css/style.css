@@ -201,6 +201,8 @@ h1{
 .botones-carrito:hover{
     background-color: blue;
 }
+
+
   /** Agrege la clasee carrito-img, fijate en la linea 129 del archivo subastas.js que le agregue la clase al elemento que estabas creando**/
   .carrito-img{ 
     height: 60px;
