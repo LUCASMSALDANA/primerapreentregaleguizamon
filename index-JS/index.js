@@ -24,7 +24,6 @@ fetch(url) /* Consumimos una API con productos*/
 
 
 function mostrarProducto(producto){
-    console.log(producto)
     const areaMarket = document.getElementById("areaMarket")
     for(let i = 0; i<producto.length;i++){
         const card= document.createElement("div")
@@ -42,5 +41,7 @@ function mostrarProducto(producto){
         </div>
          `; 
         areaMarket.append(card);
+        let botonCompra=card.querySelector(".botonCompra")
+        botonCompra.addEventListener("click",agregar_carrito);
     }
 }
