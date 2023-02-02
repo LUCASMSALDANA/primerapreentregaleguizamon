@@ -229,16 +229,25 @@ h1{
     justify-content: center;
     font-family: cursive;
  }
+ tr{
+    text-align: center;
+    vertical-align: middle;
+ }
  td{
     height: 40px;
   }
 .botones-carrito{
     width: 30px;
     border-radius: 30px;
-    font-size: 30px;
+    font-size: 40px;
+    background: transparent;
+    border: transparent;
 }
-.botones-carrito:hover{
-    background-color: blue;
+.boton-suma{
+    color: green;
+}
+.boton-resta{
+    color:red;
 }
 
   /** Agrege la clasee carrito-img, fijate en la linea 129 del archivo subastas.js que le agregue la clase al elemento que estabas creando**/
@@ -249,9 +258,12 @@ h1{
 
   #compraFinal{
     font-size: 30px;
-    border-radius: 7px;
+    padding: 5px;
+    color: white;
     justify-content: center;
-    padding: 4px;
+    border: 0;
+    border-radius: 7px;
+    background-color: rgb(129, 93, 147);
 }
 
 
