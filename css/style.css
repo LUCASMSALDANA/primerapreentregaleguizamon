@@ -176,15 +176,31 @@ h1{
 .btn-subastar:hover{
     color: blue;
 }
+
+/** Seccion de Productos en venta  **/
+
+#market{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#areaMarket{
+  display: grid;
+  width: 90vw;
+  grid-template-columns: 33% 33% 33%;
+  justify-content: center;
+  justify-items: center;
+}
+
+
 .titulo-carta{
     display: flex;
     justify-content: center;
     margin: 70px;
     font-size: 50px;
 }
-.carta-columna{
-    display: flex;
-}
+
 
 .card{
     margin: 30px;
@@ -194,14 +210,19 @@ h1{
     flex-direction: column;
     align-items: center;
 }
-#carrito{
-    width: 40%; 
-    background-color: lightcoral; 
-    height: auto;
-    top: 50%;
-    left: 70%;
-    position: sticky;
 
+/** Carrito **/
+#carrito{
+    display: flex;    
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    background-color: rgba(234, 193, 255,0.35);
+    height: auto;
+    padding: 7px;
+    left: 59.5%;
+    position: sticky;
+    border-radius: 8px;
  }
  #carrito h2{
     display: flex;
@@ -219,6 +240,7 @@ h1{
 .botones-carrito:hover{
     background-color: blue;
 }
+
   /** Agrege la clasee carrito-img, fijate en la linea 129 del archivo subastas.js que le agregue la clase al elemento que estabas creando**/
   .carrito-img{ 
     height: 60px;
@@ -229,15 +251,10 @@ h1{
     font-size: 30px;
     border-radius: 7px;
     justify-content: center;
-    margin-bottom: 10px;
+    padding: 4px;
 }
 
-#areaMarket{
-  display: grid;
-  grid-template-columns: 33% 33% 33%;
-  justify-content: center;
-  justify-items: center;
-}
+
 
 /* FOOTER */
 
