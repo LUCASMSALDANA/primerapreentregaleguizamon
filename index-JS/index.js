@@ -6,6 +6,20 @@ import { subastar, set_info } from "./subastas.js";
 const botonSubastar = document.getElementById("btn-subastar")
 const boton=document.getElementById("btn-subastar");
 const botonFinalizarcompra= document.getElementById("compraFinal"); 
+const botonCarrito= document.getElementById("carritoIcon");
+
+botonCarrito.onclick= ()=>{
+    let carrito= document.getElementById("carrito");
+    if(carrito.style.display=="flex"){
+        carrito.style.display="none";
+        botonCarrito.style.backgroundColor="rgba(234, 193, 255,0.35)";
+        botonCarrito.style.boxShadow="0px 0px 15px rgb(0 0 0 / 50%)"
+    }else{
+        carrito.style.display="flex";
+        botonCarrito.style.backgroundColor="transparent"
+        botonCarrito.style.boxShadow="none"
+    }
+};
 
 /*Les asignamos a los botones una funcion*/
 botonSubastar.onclick = subastar;
